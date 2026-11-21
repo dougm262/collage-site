@@ -1,0 +1,49 @@
+# Admin page settings (Decap CMS).
+# ONE THING TO CHANGE: replace YOUR-GITHUB-USERNAME below with your GitHub username.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/collage-site
+  branch: main
+
+site_url: /
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: content
+    label: Site content
+    editor:
+      preview: false
+    files:
+      - name: collages
+        label: Collages
+        file: data/collages.json
+        fields:
+          - name: collages
+            label: Collages (top of the list shows first on the site)
+            label_singular: Collage
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: image, label: Photo, widget: image, required: false, choose_url: false }
+              - { name: year, label: Year, widget: string, required: false }
+              - { name: materials, label: Materials, widget: string, required: false, hint: "e.g. magazine paper, thread" }
+              - { name: note, label: Handwritten note, widget: text, required: false, hint: "A short line shown in script under the piece" }
+              - { name: series, label: Series, widget: string, required: false, hint: "Optional. Pieces with a series get a filter button on the gallery." }
+
+      - name: settings
+        label: Page text & About
+        file: data/settings.json
+        fields:
+          - { name: site_name, label: Site name, widget: string }
+          - { name: byline, label: Byline (script, next to the name), widget: string, required: false }
+          - { name: kicker, label: Small script line above the headline, widget: string, required: false }
+          - { name: headline, label: Headline, widget: string }
+          - { name: intro, label: Welcome text, widget: text, required: false }
+          - { name: about_photo, label: About photo (you or your work table), widget: image, required: false, choose_url: false }
+          - { name: about_caption, label: About photo caption, widget: string, required: false }
+          - { name: about, label: About text (blank line between paragraphs), widget: text, required: false }
+          - { name: email, label: Contact email, widget: string, required: false }

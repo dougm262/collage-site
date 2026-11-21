@@ -1,0 +1,52 @@
+{
+  "collages": [
+    {
+      "title": "Placeholder — your first collage",
+      "image": "",
+      "year": "2026",
+      "materials": "Magazine paper, thread",
+      "note": "Replace me from the admin page",
+      "series": ""
+    },
+    {
+      "title": "Placeholder — second piece",
+      "image": "",
+      "year": "2026",
+      "materials": "Maps, ticket stubs",
+      "note": "a short note about the piece",
+      "series": ""
+    },
+    {
+      "title": "Placeholder — third piece",
+      "image": "",
+      "year": "2025",
+      "materials": "Sheet music, tissue paper",
+      "note": "a short note about the piece",
+      "series": ""
+    },
+    {
+      "title": "Placeholder — fourth piece",
+      "image": "",
+      "year": "2025",
+      "materials": "Found paper",
+      "note": "a short note about the piece",
+      "series": ""
+    },
+    {
+      "title": "Placeholder — fifth piece",
+      "image": "",
+      "year": "2025",
+      "materials": "Mixed media",
+      "note": "a short note about the piece",
+      "series": ""
+    },
+    {
+      "title": "Placeholder — sixth piece",
+      "image": "",
+      "year": "2024",
+      "materials": "Mixed media",
+      "note": "a short note about the piece",
+      "series": ""
+    }
+  ]
+}

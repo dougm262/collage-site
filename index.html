@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Collages by Doug</title>
+<title>Collages by Eileen</title>
 <meta name="description" content="Original paper collages.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600&family=Lora:wght@400;500;600&family=Libre+Baskerville:wght@400;700&family=Nunito:wght@400;600&family=Source+Serif+4:wght@400;600&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500;700&display=swap">
 <style>
   :root{
     --paper:#F3ECE0; --paper-deep:#E9DFCE; --card:#FFFDF8;
@@ -15,12 +15,14 @@
     --accent:#8F4A12; --rule:#C9B8A2; --pill:#B9A58C;
     --serif:'Young Serif', Georgia, serif;
     --sans:'Work Sans', system-ui, sans-serif;
+    --text-font:var(--sans); --text-size:17px;
     --hand:'Caveat', cursive;
     --shadow:0 2px 4px rgba(58,42,31,.12), 0 12px 24px rgba(58,42,31,.10);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text-font);font-size:var(--text-size);line-height:1.6}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   a{color:var(--accent)} a:hover{color:#5E300B}
   img{max-width:100%;display:block}
   .wrap{max-width:1180px;margin:0 auto;padding-inline:32px}
@@ -36,11 +38,11 @@
   nav a.cta{background:var(--ink);color:var(--paper)}
   nav a.cta:hover{background:#21170F;color:var(--paper)}
 
-  .hero{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;padding-top:72px;padding-bottom:40px}
-  .hero .main{flex:999 1 520px;min-width:0}
+  .hero{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:64px;padding-bottom:48px}
+  .hero .main{flex:999 1 480px;min-width:0}
   .kicker{margin:0 0 12px;font-family:var(--hand);font-size:30px;color:var(--accent);transform:rotate(-2deg);transform-origin:left}
   h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.01em}
-  .intro{flex:1 1 300px;margin:0;color:var(--ink-soft);max-width:420px}
+  .intro{margin:24px 0 0;color:var(--ink-soft);max-width:560px}
 
   .gallery{padding-top:24px;padding-bottom:80px}
   .gallery-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:40px;border-top:1.5px dashed var(--rule);padding-top:28px}
@@ -69,21 +71,20 @@
   .photo .shape{position:absolute}
   .photo .tag{position:absolute;left:12px;bottom:10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:rgba(255,253,248,.85);padding:2px 8px}
   figcaption{padding:16px 6px 0}
-  .title{font-family:var(--serif);font-size:20px;line-height:1.3}
-  .meta{font-size:14px;color:var(--muted)}
-  .note{font-family:var(--hand);font-size:22px;color:var(--accent);line-height:1.2;margin-top:6px}
+  .title{font-family:var(--serif);font-size:1.18em;line-height:1.3}
+  .meta{font-size:.84em;color:var(--muted)}
+  .note{font-family:var(--hand);font-size:1.3em;color:var(--accent);line-height:1.2;margin-top:6px}
   .empty{color:var(--muted)}
 
-  .about{background:var(--paper-deep);padding:80px 0}
-  .about .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
-  .polaroid{flex:1 1 280px;max-width:360px;transform:rotate(-2deg);background:var(--card);padding:14px 14px 40px;box-shadow:var(--shadow)}
+  .about{background:var(--paper-deep);padding:72px 0}
+  .polaroid{flex:1 1 260px;max-width:340px;margin-inline:auto;transform:rotate(-2deg);background:var(--card);padding:14px 14px 40px;box-shadow:var(--shadow)}
   .polaroid .ph{aspect-ratio:1/1;background:#CDBBA0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;overflow:hidden}
   .polaroid .ph img{width:100%;height:100%;object-fit:cover}
   .polaroid .ph.has-img{padding:0}
   .polaroid p{margin:14px 0 0;font-family:var(--hand);font-size:24px;text-align:center}
-  .about-text{flex:999 1 420px;min-width:0}
-  .about-text h2{font-size:40px;margin-bottom:20px}
-  .about-text p{margin:0 0 16px;max-width:620px}
+  .about-text{max-width:680px}
+  .about-text p{margin:0 0 16px}
+  .about-text p:last-child{margin-bottom:0}
 
   .contact{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding-top:80px;padding-bottom:80px}
   .contact .main{flex:999 1 420px;min-width:0}
@@ -110,7 +111,7 @@
 <body>
 
 <header class="top wrap">
-  <a class="brand" href="#top"><span class="name" data-set="site_name">Collages</span><span class="by" data-set="byline">by Doug</span></a>
+  <a class="brand" href="#top"><span class="name" data-set="site_name">Collages</span><span class="by" data-set="byline">by Eileen</span></a>
   <nav aria-label="Main">
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
@@ -123,13 +124,17 @@
     <div class="main">
       <p class="kicker" data-set="kicker"></p>
       <h1 data-set="headline"></h1>
+      <p class="intro" data-set="intro"></p>
     </div>
-    <p class="intro" data-set="intro"></p>
+    <div class="polaroid">
+      <div class="ph" id="about-photo">Photo of you or your work table</div>
+      <p data-set="about_caption"></p>
+    </div>
   </section>
 
   <section id="gallery" class="gallery wrap" aria-labelledby="gallery-h">
     <div class="gallery-head">
-      <h2 id="gallery-h">On the wall</h2>
+      <h2 id="gallery-h" class="sr-only">Collages</h2>
       <div class="filters" role="group" aria-label="Filter collages" id="filters" hidden></div>
     </div>
     <div class="grid" id="grid"><p class="empty">Loading collages…</p></div>
@@ -137,12 +142,8 @@
 
   <section id="about" class="about" aria-labelledby="about-h">
     <div class="wrap">
-      <div class="polaroid">
-        <div class="ph" id="about-photo">Photo of you or your work table</div>
-        <p data-set="about_caption"></p>
-      </div>
       <div class="about-text">
-        <h2 id="about-h">About the work</h2>
+        <h2 id="about-h" class="sr-only">About</h2>
         <div id="about-body"></div>
       </div>
     </div>
@@ -161,7 +162,7 @@
 </main>
 
 <footer class="wrap">
-  <span>© <span id="year"></span> <span data-set="byline-plain">Doug</span> · All collages are original work.</span>
+  <span>© <span id="year"></span> <span data-set="byline-plain">Eileen</span> · All collages are original work.</span>
   <span class="hand">thanks for stopping by</span>
 </footer>
 
@@ -223,7 +224,19 @@
   }
 
   // ---------- Page text ----------
+  var FONTS = {
+    'Work Sans (clean, modern)': "'Work Sans', system-ui, sans-serif",
+    'Lora (warm serif)': "'Lora', Georgia, serif",
+    'Libre Baskerville (classic book)': "'Libre Baskerville', Georgia, serif",
+    'Source Serif (crisp serif)': "'Source Serif 4', Georgia, serif",
+    'Nunito (soft, rounded)': "'Nunito', system-ui, sans-serif",
+    'Atkinson Hyperlegible (extra readable)': "'Atkinson Hyperlegible', system-ui, sans-serif"
+  };
+  var SIZES = { 'Small': '16px', 'Medium': '17px', 'Large': '19px', 'Extra large': '21px' };
   getJSON('/data/settings.json').then(function(s){
+    var root = document.documentElement.style;
+    if (FONTS[s.text_font]) root.setProperty('--text-font', FONTS[s.text_font]);
+    if (SIZES[s.text_size]) root.setProperty('--text-size', SIZES[s.text_size]);
     document.querySelectorAll('[data-set]').forEach(function(n){
       var key = n.getAttribute('data-set');
       if (key === 'byline-plain') { n.textContent = (s.byline || '').replace(/^by\s+/i,'') || s.site_name; return; }

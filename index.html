@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collages by Doug</title>
+<meta name="description" content="Original paper collages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-deep:#E9DFCE; --card:#FFFDF8;
+    --ink:#3A2A1F; --ink-soft:#5E4A3B; --muted:#6A5544;
+    --accent:#8F4A12; --rule:#C9B8A2; --pill:#B9A58C;
+    --serif:'Young Serif', Georgia, serif;
+    --sans:'Work Sans', system-ui, sans-serif;
+    --hand:'Caveat', cursive;
+    --shadow:0 2px 4px rgba(58,42,31,.12), 0 12px 24px rgba(58,42,31,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}
+  a{color:var(--accent)} a:hover{color:#5E300B}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:32px}
+  @media (max-width:600px){.wrap{padding-inline:20px}}
+
+  header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:32px}
+  .brand{text-decoration:none;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+  .brand .name{font-family:var(--serif);font-size:28px}
+  .brand .by{font-family:var(--hand);font-size:26px;color:var(--accent)}
+  nav{display:flex;flex-wrap:wrap;gap:8px}
+  nav a{padding:10px 16px;border-radius:999px;text-decoration:none;color:var(--ink);font-weight:500}
+  nav a:hover{background:var(--paper-deep);color:var(--ink)}
+  nav a.cta{background:var(--ink);color:var(--paper)}
+  nav a.cta:hover{background:#21170F;color:var(--paper)}
+
+  .hero{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;padding-top:72px;padding-bottom:40px}
+  .hero .main{flex:999 1 520px;min-width:0}
+  .kicker{margin:0 0 12px;font-family:var(--hand);font-size:30px;color:var(--accent);transform:rotate(-2deg);transform-origin:left}
+  h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.01em}
+  .intro{flex:1 1 300px;margin:0;color:var(--ink-soft);max-width:420px}
+
+  .gallery{padding-top:24px;padding-bottom:80px}
+  .gallery-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:40px;border-top:1.5px dashed var(--rule);padding-top:28px}
+  h2{margin:0;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.2}
+  .filters{display:flex;flex-wrap:wrap;gap:8px}
+  .filters button{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--pill);background:transparent;color:var(--ink);font:500 15px var(--sans);cursor:pointer}
+  .filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .filters button:focus-visible,.piece-btn:focus-visible,nav a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:56px 40px}
+  .piece{margin:0;transition:transform .25s ease}
+  .piece:nth-child(6n+1){transform:rotate(-1.5deg)}
+  .piece:nth-child(6n+2){transform:rotate(1deg);margin-top:28px}
+  .piece:nth-child(6n+3){transform:rotate(-.5deg)}
+  .piece:nth-child(6n+4){transform:rotate(1.5deg)}
+  .piece:nth-child(6n+5){transform:rotate(-1deg);margin-top:28px}
+  .piece:nth-child(6n){transform:rotate(.75deg)}
+  .piece:hover{transform:rotate(0) translateY(-4px)}
+  @media (max-width:640px){.piece{margin-top:0 !important}}
+  @media (prefers-reduced-motion:reduce){.piece{transition:none}html{scroll-behavior:auto}}
+  .piece-btn{all:unset;display:block;width:100%;cursor:zoom-in;border-radius:2px}
+  .frame{position:relative;background:var(--card);padding:14px 14px 18px;box-shadow:var(--shadow)}
+  .tape{position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;pointer-events:none}
+  .photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper-deep)}
+  .photo img{width:100%;height:100%;object-fit:cover}
+  .photo .shape{position:absolute}
+  .photo .tag{position:absolute;left:12px;bottom:10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:rgba(255,253,248,.85);padding:2px 8px}
+  figcaption{padding:16px 6px 0}
+  .title{font-family:var(--serif);font-size:20px;line-height:1.3}
+  .meta{font-size:14px;color:var(--muted)}
+  .note{font-family:var(--hand);font-size:22px;color:var(--accent);line-height:1.2;margin-top:6px}
+  .empty{color:var(--muted)}
+
+  .about{background:var(--paper-deep);padding:80px 0}
+  .about .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+  .polaroid{flex:1 1 280px;max-width:360px;transform:rotate(-2deg);background:var(--card);padding:14px 14px 40px;box-shadow:var(--shadow)}
+  .polaroid .ph{aspect-ratio:1/1;background:#CDBBA0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;overflow:hidden}
+  .polaroid .ph img{width:100%;height:100%;object-fit:cover}
+  .polaroid .ph.has-img{padding:0}
+  .polaroid p{margin:14px 0 0;font-family:var(--hand);font-size:24px;text-align:center}
+  .about-text{flex:999 1 420px;min-width:0}
+  .about-text h2{font-size:40px;margin-bottom:20px}
+  .about-text p{margin:0 0 16px;max-width:620px}
+
+  .contact{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding-top:80px;padding-bottom:80px}
+  .contact .main{flex:999 1 420px;min-width:0}
+  .contact .kicker{transform:none;margin-bottom:8px}
+  .contact h2{font-size:36px}
+  .btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600}
+  .btn:hover{background:#21170F;color:var(--paper)}
+
+  footer{border-top:1.5px dashed var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;padding-bottom:40px;font-size:14px;color:var(--muted)}
+  footer .hand{font-family:var(--hand);font-size:20px}
+
+  dialog{border:none;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh;color:var(--ink)}
+  dialog::backdrop{background:rgba(33,23,15,.82)}
+  .lb{background:var(--card);padding:16px 16px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;max-height:92vh}
+  .lb .photo{aspect-ratio:auto;background:none;display:flex;justify-content:center;min-height:0}
+  .lb .photo img{width:auto;height:auto;max-width:100%;max-height:72vh;object-fit:contain}
+  .lb .photo.ph-art{aspect-ratio:4/5;width:min(70vh,80vw);max-width:100%}
+  .lb-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px}
+  .lb-nav{display:flex;gap:8px}
+  .lb-nav button{min-width:44px;min-height:44px;border-radius:999px;border:1.5px solid var(--pill);background:transparent;color:var(--ink);font:500 15px var(--sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0 14px}
+  .lb-nav button:hover{background:var(--paper-deep)}
+</style>
+</head>
+<body>
+
+<header class="top wrap">
+  <a class="brand" href="#top"><span class="name" data-set="site_name">Collages</span><span class="by" data-set="byline">by Doug</span></a>
+  <nav aria-label="Main">
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a class="cta" href="#contact">Say hello</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="main">
+      <p class="kicker" data-set="kicker"></p>
+      <h1 data-set="headline"></h1>
+    </div>
+    <p class="intro" data-set="intro"></p>
+  </section>
+
+  <section id="gallery" class="gallery wrap" aria-labelledby="gallery-h">
+    <div class="gallery-head">
+      <h2 id="gallery-h">On the wall</h2>
+      <div class="filters" role="group" aria-label="Filter collages" id="filters" hidden></div>
+    </div>
+    <div class="grid" id="grid"><p class="empty">Loading collages…</p></div>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="polaroid">
+        <div class="ph" id="about-photo">Photo of you or your work table</div>
+        <p data-set="about_caption"></p>
+      </div>
+      <div class="about-text">
+        <h2 id="about-h">About the work</h2>
+        <div id="about-body"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap" aria-labelledby="contact-h">
+    <div class="main">
+      <p class="kicker">drop me a line</p>
+      <h2 id="contact-h">Like something you see? I'd love to hear from you.</h2>
+    </div>
+    <a class="btn" id="email-btn" href="#">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      Send an email
+    </a>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> <span data-set="byline-plain">Doug</span> · All collages are original work.</span>
+  <span class="hand">thanks for stopping by</span>
+</footer>
+
+<dialog id="lightbox" aria-labelledby="lb-title">
+  <div class="lb">
+    <div class="photo" id="lb-photo"></div>
+    <div class="lb-row">
+      <div>
+        <div class="title" id="lb-title"></div>
+        <div class="meta" id="lb-meta"></div>
+        <div class="note" id="lb-note"></div>
+      </div>
+      <div class="lb-nav">
+        <button type="button" id="lb-prev" aria-label="Previous collage">&#8592;</button>
+        <button type="button" id="lb-next" aria-label="Next collage">&#8594;</button>
+        <button type="button" id="lb-close">Close</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  // Placeholder art for pieces that don't have a photo yet.
+  var PALETTES = [
+    {bg:'#E7D9C3', s:[['10%','12%','55%','42%','#2F5D62','-6deg',0],['52%','30%','40%','40%','#D9A441','0deg',1],['18%','68%','62%','22%','#B5532E','4deg',0]]},
+    {bg:'#2F3B46', s:[['0%','0%','100%','38%','#E9DFCB','0deg',0],['22%','20%','56%','45%','#C7623A','0deg',1],['8%','78%','84%','8%','#F1C75B','-3deg',0]]},
+    {bg:'#D8C9AE', s:[['0%','18%','70%','26%','#6D8A6A','0deg',0],['42%','36%','58%','30%','#3E4F7A','0deg',0],['30%','62%','30%','24%','#E3B04B','0deg',1]]},
+    {bg:'#EFE4D2', s:[['12%','10%','36%','80%','#A8452C','3deg',0],['44%','22%','44%','30%','#2F5D62','0deg',0],['50%','58%','30%','28%','#D9A441','-8deg',0]]},
+    {bg:'#33403A', s:[['14%','14%','72%','50%','#E9DFCB','-2deg',0],['26%','26%','30%','24%','#C7623A','0deg',1],['50%','66%','40%','24%','#8FA7B8','0deg',0]]},
+    {bg:'#E6D6BC', s:[['0%','66%','100%','34%','#3E4F7A','0deg',0],['16%','16%','40%','32%','#D9A441','0deg',1],['58%','26%','30%','52%','#B5532E','6deg',0]]}
+  ];
+  var TAPES = ['rgba(226,200,140,.75)','rgba(196,214,198,.8)','rgba(232,180,160,.7)'];
+
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function placeholderArt(container, i){
+    var p = PALETTES[i % PALETTES.length];
+    container.style.background = p.bg;
+    container.setAttribute('role','img');
+    container.setAttribute('aria-label','Placeholder until a photo is added');
+    p.s.forEach(function(s){
+      var d = el('div','shape');
+      d.style.left=s[0]; d.style.top=s[1]; d.style.width=s[2]; d.style.height=s[3];
+      d.style.background=s[4]; d.style.transform='rotate('+s[5]+')';
+      if (s[6]) d.style.borderRadius='50%';
+      container.appendChild(d);
+    });
+    container.appendChild(el('span','tag','Photo coming soon'));
+  }
+  function metaLine(c){ return [c.year, c.materials].filter(Boolean).join(' · '); }
+
+  function getJSON(url){
+    return fetch(url, {cache:'no-cache'}).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); });
+  }
+
+  // ---------- Page text ----------
+  getJSON('/data/settings.json').then(function(s){
+    document.querySelectorAll('[data-set]').forEach(function(n){
+      var key = n.getAttribute('data-set');
+      if (key === 'byline-plain') { n.textContent = (s.byline || '').replace(/^by\s+/i,'') || s.site_name; return; }
+      if (s[key] != null) n.textContent = s[key];
+    });
+    var by = (s.byline || '').replace(/^by\s+/i,'');
+    document.title = s.site_name + (by ? ' by ' + by : '');
+    var body = document.getElementById('about-body');
+    body.textContent = '';
+    String(s.about || '').split(/\n\s*\n/).forEach(function(par){
+      if (par.trim()) body.appendChild(el('p', null, par.trim()));
+    });
+    if (s.about_photo){
+      var ph = document.getElementById('about-photo');
+      ph.textContent=''; ph.classList.add('has-img');
+      var img = el('img'); img.src = s.about_photo; img.alt = s.about_caption || 'Photo of the artist';
+      img.loading = 'lazy'; ph.appendChild(img);
+    }
+    var btn = document.getElementById('email-btn');
+    if (s.email) btn.href = 'mailto:' + s.email; else btn.hidden = true;
+  }).catch(function(){});
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Gallery ----------
+  var all = [], shown = [], current = 0, activeSeries = 'All';
+  var grid = document.getElementById('grid');
+
+  function renderFilters(){
+    var series = [];
+    all.forEach(function(c){ if (c.series && series.indexOf(c.series) < 0) series.push(c.series); });
+    var box = document.getElementById('filters');
+    box.textContent = '';
+    if (!series.length){ box.hidden = true; return; }
+    box.hidden = false;
+    ['All'].concat(series).forEach(function(name){
+      var b = el('button', null, name);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(name === activeSeries));
+      b.addEventListener('click', function(){ activeSeries = name; renderFilters(); renderGrid(); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderGrid(){
+    shown = activeSeries === 'All' ? all : all.filter(function(c){ return c.series === activeSeries; });
+    grid.textContent = '';
+    if (!shown.length){ grid.appendChild(el('p','empty','No collages here yet.')); return; }
+    shown.forEach(function(c, i){
+      var fig = el('figure','piece');
+      var btn = el('button','piece-btn');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'View larger: ' + (c.title || 'Untitled'));
+      var frame = el('div','frame');
+      var tape = el('div','tape'); tape.setAttribute('aria-hidden','true');
+      tape.style.background = TAPES[i % TAPES.length];
+      tape.style.transform = 'rotate(' + ((i % 2 ? -1 : 1) * (2 + i % 3)) + 'deg)';
+      var photo = el('div','photo');
+      if (c.image){
+        var img = el('img'); img.src = c.image; img.alt = c.title || 'Collage'; img.loading = 'lazy';
+        photo.appendChild(img);
+      } else {
+        placeholderArt(photo, all.indexOf(c));
+      }
+      frame.appendChild(tape); frame.appendChild(photo); btn.appendChild(frame);
+      var cap = el('figcaption');
+      cap.appendChild(el('div','title', c.title || 'Untitled'));
+      var m = metaLine(c); if (m) cap.appendChild(el('div','meta', m));
+      if (c.note) cap.appendChild(el('div','note', c.note));
+      btn.addEventListener('click', function(){ openLightbox(i); });
+      fig.appendChild(btn); fig.appendChild(cap);
+      grid.appendChild(fig);
+    });
+  }
+
+  // ---------- Lightbox ----------
+  var dlg = document.getElementById('lightbox');
+  function openLightbox(i){
+    current = (i + shown.length) % shown.length;
+    var c = shown[current];
+    var ph = document.getElementById('lb-photo');
+    ph.textContent = ''; ph.removeAttribute('style'); ph.removeAttribute('role'); ph.removeAttribute('aria-label');
+    ph.className = 'photo';
+    if (c.image){
+      var img = el('img'); img.src = c.image; img.alt = c.title || 'Collage'; ph.appendChild(img);
+    } else {
+      ph.classList.add('ph-art'); placeholderArt(ph, all.indexOf(c));
+    }
+    document.getElementById('lb-title').textContent = c.title || 'Untitled';
+    document.getElementById('lb-meta').textContent = metaLine(c);
+    document.getElementById('lb-note').textContent = c.note || '';
+    var multi = shown.length > 1;
+    document.getElementById('lb-prev').hidden = !multi;
+    document.getElementById('lb-next').hidden = !multi;
+    if (!dlg.open) dlg.showModal();
+  }
+  document.getElementById('lb-prev').addEventListener('click', function(){ openLightbox(current - 1); });
+  document.getElementById('lb-next').addEventListener('click', function(){ openLightbox(current + 1); });
+  document.getElementById('lb-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft') openLightbox(current - 1);
+    if (e.key === 'ArrowRight') openLightbox(current + 1);
+  });
+
+  getJSON('/data/collages.json').then(function(d){
+    all = (d && d.collages) || [];
+    renderFilters(); renderGrid();
+  }).catch(function(){
+    grid.textContent = '';
+    grid.appendChild(el('p','empty','Collages couldn’t load. If you opened this file directly, view it through Netlify (or a local web server) instead.'));
+  });
+})();
+</script>
+</body>
+</html>

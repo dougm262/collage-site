@@ -1,6 +1,21 @@
 {
   "collages": [
     {
+      "title": "#10",
+      "year": "2026",
+      "image": "/images/uploads/img_0770.jpeg"
+    },
+    {
+      "title": "#9",
+      "image": "/images/uploads/img_0769.jpeg",
+      "year": "2026"
+    },
+    {
+      "title": "#8",
+      "image": "/images/uploads/img_0768.jpeg",
+      "year": "2026"
+    },
+    {
       "title": "#1",
       "image": "/images/uploads/img_0688-1-.jpeg",
       "year": "2026"

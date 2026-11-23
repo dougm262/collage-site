@@ -2,7 +2,7 @@
 # ONE THING TO CHANGE: replace YOUR-GITHUB-USERNAME below with your GitHub username.
 backend:
   name: github
-  repo: dougm262/collage-site
+  repo: YOUR-GITHUB-USERNAME/collage-site
   branch: main
 
 site_url: /
@@ -43,7 +43,25 @@ collections:
           - { name: kicker, label: Small script line above the headline, widget: string, required: false }
           - { name: headline, label: Headline, widget: string }
           - { name: intro, label: Welcome text, widget: text, required: false }
-          - { name: about_photo, label: About photo (you or your work table), widget: image, required: false, choose_url: false }
-          - { name: about_caption, label: About photo caption, widget: string, required: false }
+          - { name: about_photo, label: Top photo (shown beside the headline), widget: image, required: false, choose_url: false }
+          - { name: about_caption, label: Top photo caption (handwritten), widget: string, required: false }
           - { name: about, label: About text (blank line between paragraphs), widget: text, required: false }
           - { name: email, label: Contact email, widget: string, required: false }
+          - name: text_font
+            label: Text font
+            widget: select
+            required: false
+            default: "Work Sans (clean, modern)"
+            options:
+              - "Work Sans (clean, modern)"
+              - "Lora (warm serif)"
+              - "Libre Baskerville (classic book)"
+              - "Source Serif (crisp serif)"
+              - "Nunito (soft, rounded)"
+              - "Atkinson Hyperlegible (extra readable)"
+          - name: text_size
+            label: Text size
+            widget: select
+            required: false
+            default: "Medium"
+            options: ["Small", "Medium", "Large", "Extra large"]
